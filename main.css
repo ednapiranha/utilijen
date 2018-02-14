@@ -1,0 +1,60 @@
+body {
+  padding: 10px;
+  margin: 0; 
+  background-color: #111;
+  font-family: monospace;
+}
+
+header {
+  background-color: rgba(50, 50, 50, 0.8);
+  text-align: center;
+}
+
+header button {
+  background-color: rgba(220, 220, 220, 0.5);
+}
+
+button {
+  margin: 5px;
+  border: 0;
+  font-size: 1.2rem;
+  border-radius: 2px;
+}
+
+header button.on {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#input, #output {
+  padding: 5px;
+  background-color: rgba(130, 230, 250, 0.9);
+}
+
+#fix {
+  background-color: rgba(10, 200, 180, 0.8);
+}
+
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  border: 0;
+  background-color: rgba(30, 20, 20, 0.8);
+  min-height: 200px;
+  font-size: 0.8rem;
+  color: #eee;
+  padding: 5px 10px;
+}
+
+#output pre {
+  white-space: pre-wrap;
+}
+
+textarea:focus {
+  background-color: rgba(10, 10, 10, 0.8);
+}
+
+button:hover, #fix:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
