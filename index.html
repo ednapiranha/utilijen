@@ -5,17 +5,34 @@
     <meta charset="utf-8">
     <meta content="width=device-width, height=device-height, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" name="viewport">
     <meta content="yes" name="apple-mobile-web-app-capable">
-    <link href="https://fonts.googleapis.com/css?family=Zilla+Slab+Highlight" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
     <header>
-      <button id="formatJSON">format+validate json</button>
+      <button id="formatJSON">format json</button>
       <button id="formatBase64Encode">base64 encode</button>
       <button id="formatBase64Decode">base64 decode</button>
-      <button id="escapeHTMLString">escape html-ent</button>
-      <button id="unescapeHTMLString">unescape html-ent</button>
+      <button id="escapeHTMLString">escape html</button>
+      <button id="unescapeHTMLString">unescape html</button>
     </header>
+    <section>
+      <p id="formatJSON-tips">
+        Sample valid input: <span>{ foo: 'bar' }</span> or <span>{ "foo": "bar" }</span>
+      </p>
+      <p id="formatBase64Encode-tips">
+        Encode a base64 string
+      </p>
+      <p id="formatBase64Decode-tips">
+        Decode a base64 string
+      </p>
+      <p id="escapeHTMLString-tips">
+        Escapes: <span>&lt;</span>, <span>&gt;</span>, <span>&quot;</span>, <span>&amp;</span>
+      </p>
+      <p id="unescapeHTMLString-tips">
+        Unescapes: <span>&amp;lt;</span>, <span>&amp;gt;</span>, <span>&amp;quot;</span>, <span>&amp;amp;</span>
+      </p>
+    </section>
     <div id="input">
       <textarea></textarea>
     </div>

@@ -1,14 +1,21 @@
 var input = document.querySelector('#input textarea')
 var output = document.querySelector('#output pre')
+var tips = document.querySelectorAll('section p')
 var fixit = document.querySelector('#fixit')
 var actionTypes = {}
 
 var actions = document.querySelectorAll('header button')
 var currentType
 
-function reset() {
+function resetBtns() {
   actions.forEach(function (a) {
     a.className = ''
+  })
+}
+
+function resetTips() {
+  tips.forEach(function (t) {
+    t.className = ''
   })
 }
 
@@ -17,8 +24,10 @@ actions.forEach(function (a) {
   a.onclick = function (ev) {
     ev.preventDefault()
     currentType = this.id
-    reset()
+    resetBtns()
+    resetTips()
     this.className = 'on'
+    document.querySelector('#' + this.id + '-tips').className = 'on'
   }
 })
 

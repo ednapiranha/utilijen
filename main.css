@@ -2,12 +2,11 @@ body {
   padding: 10px;
   margin: 0; 
   background-color: #111;
-  font-family: monospace;
+  font-family: 'Roboto Mono', monospace;
 }
 
 header {
   background-color: rgba(50, 50, 50, 0.8);
-  text-align: center;
 }
 
 header button {
@@ -15,9 +14,9 @@ header button {
 }
 
 button {
-  margin: 5px;
+  margin: 10px 3px;
   border: 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   border-radius: 2px;
 }
 
@@ -32,6 +31,23 @@ header button.on {
 
 #fix {
   background-color: rgba(10, 200, 180, 0.8);
+}
+
+section  p {
+  color: #eee;
+  line-height: 1rem;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  display: none;
+}
+
+section p.on {
+  display: block;
+}
+
+section span {
+  background-color: rgba(220, 5, 100, 0.9);
+  padding: 3px 0;
 }
 
 textarea {
