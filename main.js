@@ -36,7 +36,6 @@ function formatJSON() {
   try {
     console.log(input.value)
     var preformat = input.value.replace(/([a-zA-Z0-9-]+):\s*([a-zA-Z0-9-]+)/g, "\"$1\":\"$2\"")
-    console.log('======>>> ', input.value)
     parsed = JSON.parse(preformat)
     return JSON.stringify(parsed, null, 2)
   } catch (e) {
