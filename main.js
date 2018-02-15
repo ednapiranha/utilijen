@@ -73,10 +73,10 @@ function escapeHTMLString() {
 function unescapeHTMLString() {
   var data = input.value
 
-  data = data.replace(/&amp;/g,'&')
-            .replace(/&lt;/g,'<')
-            .replace(/&gt;/g,'>')
-            .replace(/&quot;/g, '"')
+  data = data.replace(/\&amp;/g,'&')
+            .replace(/\&lt;/g,'<')
+            .replace(/\&gt;/g,'>')
+            .replace(/\&quot;/g, '"')
   return data
 }
 
