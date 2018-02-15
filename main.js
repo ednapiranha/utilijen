@@ -40,16 +40,19 @@ fixit.onclick = function (ev) {
 }
 
 function fixTypes(parsed) {
-  console.log('parsed ', parsed)
   Object.keys(parsed).map(function (p) {
+    var pVal = parsed[p].trim()
     // check int
-    var int = parseInt(parsed[p], 10)
+    var int = parseInt(pVal, 10)
+
     if (!isNaN(int)) {
       parsed[p] = int
 
     // check bool
-    } else if (parsed[p] == 'true' || parsed[p] == 'false') {
-      parsed[p] = !!parsed[p]
+    } else if (pVal == 'true' || pVal == 'false') {
+      parsed[p] = !!pVal
+    } else {
+      parsed[p] = pVal
     }
   })
 
@@ -60,9 +63,8 @@ function formatJSON() {
   var parsed
 
   try {
-    console.log(input.value)
-    var preformat = input.value.replace(/([a-zA-Z0-9-_']+):\s*([a-zA-Z0-9-_']+)/g, '\"$1\":\"$2\"')
-                               .replace(/"'|'"/g, '"')
+    var preformat = input.value.replace(/('|")?([\w\d\s-]+)('|")?:\s*('|")?([\w\d\s-]+)('|")?/gi, '$2:$5')
+                               .replace(/([\w\d\s-]+):\s*([\w\d\s-]+)/gi, '\"$1\": \"$2\"')
     parsed = JSON.parse(preformat)
     parsed = fixTypes(parsed)
     return JSON.stringify(parsed, null, 2)
@@ -97,6 +99,20 @@ function unescapeHTMLString() {
             .replace(/\&gt;/g,'>')
             .replace(/\&quot;/g, '"')
   return data
+}
+
+function regex() {
+  var val = document.querySelector('#regex-filter').value
+  var filter = val.split('/')
+  var matchRange = filter[2] || ''
+  var pattern = new RegExp(filter[1], matchRange)
+  var match = pattern.exec(input.value)
+  console.log('mmmm ', match)
+  if (match === null) {
+    return 'NO REGEX MATCH FOUND'
+  } else {
+    return match
+  }
 }
 
 function format() {

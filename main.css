@@ -35,7 +35,7 @@ header button.on {
 
 section  p {
   color: #eee;
-  line-height: 1rem;
+  line-height: 1.5rem;
   font-size: 0.9rem;
   margin-left: 10px;
   display: none;
@@ -47,7 +47,9 @@ section p.on {
 
 section span {
   background-color: rgba(220, 5, 100, 0.9);
-  padding: 3px 0;
+  padding: 2px 3px;
+  margin: 1px;
+  display: inline-block;
 }
 
 textarea {
@@ -72,5 +74,13 @@ textarea:focus {
 }
 
 button:hover, #fix:hover {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(30, 220, 120, 0.8);
+}
+
+#regex-filter {
+  border: 0;
+  background-color: rgba(20, 205, 200, 0.9);
+  font-size: 1.4rem;
+  line-height: 1.5rem;
+  padding: 2px 10px;
 }
