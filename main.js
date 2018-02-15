@@ -39,13 +39,32 @@ fixit.onclick = function (ev) {
   output.textContent = format()
 }
 
+function fixTypes(parsed) {
+  console.log('parsed ', parsed)
+  Object.keys(parsed).map(function (p) {
+    // check int
+    var int = parseInt(parsed[p], 10)
+    if (!isNaN(int)) {
+      parsed[p] = int
+
+    // check bool
+    } else if (parsed[p] == 'true' || parsed[p] == 'false') {
+      parsed[p] = !!parsed[p]
+    }
+  })
+
+  return parsed
+}
+
 function formatJSON() {
   var parsed
 
   try {
     console.log(input.value)
-    var preformat = input.value.replace(/([a-zA-Z0-9-]+):\s*([a-zA-Z0-9-]+)/g, "\"$1\":\"$2\"")
+    var preformat = input.value.replace(/([a-zA-Z0-9-_']+):\s*([a-zA-Z0-9-_']+)/g, '\"$1\":\"$2\"')
+                               .replace(/"'|'"/g, '"')
     parsed = JSON.parse(preformat)
+    parsed = fixTypes(parsed)
     return JSON.stringify(parsed, null, 2)
   } catch (e) {
     return 'INVALID JSON'
